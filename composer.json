@@ -1,0 +1,47 @@
+{
+    "name": "jmonday/workflow-example",
+    "require": {
+        "jmonday/coding-standards": "^0.1.2",
+        "phpstan/extension-installer": "^1.1",
+        "symfony/console": "^5.3",
+        "symfony/event-dispatcher": "^5.3",
+        "symfony/process": "^5.3",
+        "symfony/workflow": "^5.3"
+    }
+    ,
+    "require-dev": {
+        "jetbrains/phpstorm-attributes": "^1.0",
+        "symfony/var-dumper": "^5.3",
+        "roave/security-advisories": "dev-latest"
+    },
+    "config": {
+        "platform": {
+            "php": "8.0"
+        },
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "fmt": [
+            "./vendor/bin/phpcbf",
+            "./vendor/bin/phpcs",
+            "./vendor/bin/phpstan analyse -c ./phpstan.neon"
+        ],
+        "test": [
+            "./vendor/bin/phpunit"
+        ]
+    }
+}
